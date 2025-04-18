@@ -12,6 +12,10 @@ help: Makefile
 up: ## Inicia los contenedores
 	docker-compose up
 
+.PHONY: b
+b: ## Inicia los contenedores
+	docker-compose run $(SERVICE_NAME) pnpm run build
+
 .PHONY: down
 down: ## Detiene y elimina los recursos generados por 'up'
 	docker-compose down
