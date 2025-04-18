@@ -24,9 +24,13 @@ down: ## Detiene y elimina los recursos generados por 'up'
 sh: ## Accede al shell del contenedor de la aplicación
 	docker-compose run $(SERVICE_NAME) sh
 
-.PHONY: build
-build: ## Construye la imagen de Docker basada en el Dockerfile
+.PHONY: dbuild
+dbuild: ## Construye la imagen de Docker basada en el Dockerfile
 	docker-compose build $(SERVICE_NAME)
+
+.PHONY: build
+build: ## Compila el proyecto
+	@docker-compose run --rm $(SERVICE_NAME) pnpm run build
 
 .PHONY: add
 add: ## Agrega paquetes con pnpm dentro del contenedor, e.g., make add vue-router@next axios
