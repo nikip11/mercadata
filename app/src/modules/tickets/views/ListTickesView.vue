@@ -9,6 +9,7 @@
       <div>- [x] Mostrar el ultimo mes</div>
       -->
     <DatePicker @change="onChange" format="YYYY/MM/DD"></DatePicker>
+    <div>total: {{ total }}</div>
     <GridTickets
       :error="error"
       :loading="loading"
@@ -47,6 +48,15 @@ const nowDateRange = computed(() => {
 // COMPOSABLES   ======================================================================================================
 const ticketStore = useTicketStore();
 const { loading, error, status, tickets } = storeToRefs(ticketStore);
+
+const total = computed(() => {
+  return ticketStore.tickets
+    ? ticketStore.tickets.reduce(
+        (sum, ticket) => sum + (Number(ticket.total) || 0),
+        0
+      )
+    : 0;
+});
 
 // EVENTS =============================================================================================================
 const onChange = (args: any) => {

@@ -9,7 +9,7 @@
     @click:append-inner="onChange"
   ></v-text-field>
   <ul>
-    <li v-for="(product, index) in productsStore.products" key="index">
+    <li v-for="(product, index) in productsStore.products" :key="index">
       {{ product.product }}: {{ product.last_price }}
     </li>
   </ul>
@@ -21,7 +21,7 @@ import { useProductStore } from "../store/useProductStore";
 // DEFINE PROPS  ======================================================================================================
 const props = defineProps({});
 
-const headers = [];
+// const headers = [];
 // COMPOSABLES   ======================================================================================================
 
 const productsStore = useProductStore();
