@@ -21,7 +21,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { URL_ROUTES } from "@/plugins/router/routerType";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "@/modules/auth/store/useAuthStore";
 
 const email = ref("");
 const password = ref("");
