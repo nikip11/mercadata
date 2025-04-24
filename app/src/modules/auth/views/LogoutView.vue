@@ -3,8 +3,8 @@
 </template>
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
-import { useAuthStore } from "../store/useAuthStore";
 import { URL_ROUTES } from "@/plugins/router/routerType";
+import { useAuthStore } from "../store/useAuthStore";
 
 const authStore = useAuthStore();
 const router = useRouter();
