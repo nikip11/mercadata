@@ -20,7 +20,7 @@ export const useTicketStore = defineStore("ticketStore", () => {
   const loading = ref(false);
   const status = ref<TicketStatus>(TicketStatus.Pending);
 
-  const fetchTickets = async (props: PropFetchTickers = null) => {
+  const fetchTickets = async (props: PropFetchTickers = {}) => {
     loading.value = true;
     error.value = null;
     const query =

@@ -1,7 +1,5 @@
-<script setup lang="ts">
-import ListTickesView from "@/modules/tickets/views/ListTickesView.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <ListTickesView />
+  <RouterView />
 </template>

@@ -15,3 +15,9 @@ export interface Product {
   precio: string;
   unitPrice: number;
 }
+
+export interface SearchProduct {
+  last_date: string;
+  last_price: number;
+  product: string;
+}

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { Product } from "../types/Ticket";
+import { SearchProduct } from "../types/Ticket";
 import { http } from "@/plugins/http";
 
 enum ProductStatus {
@@ -10,7 +10,7 @@ enum ProductStatus {
 }
 
 export const useProductStore = defineStore("productStore", () => {
-  const products = ref<Product[] | null>(null);
+  const products = ref<SearchProduct[] | null>(null);
   const error = ref<string | null>(null);
   const loading = ref(false);
   const status = ref<ProductStatus>(ProductStatus.Pending);

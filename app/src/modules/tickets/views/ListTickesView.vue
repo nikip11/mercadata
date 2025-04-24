@@ -1,22 +1,24 @@
 <template>
-  <div>
-    <SearchProduct />
-    <!--
+  <MainLayout>
+    <div>
+      <SearchProduct />
+      <!--
       <div>- [x] seleccionar mes</div>
       <div>- [X] api query con fecha inicio fecha fin</div>
       <div>- [ ] grafico</div>
       <div>- [x] buscador del ultimo precio del un producto</div>
       <div>- [x] Mostrar el ultimo mes</div>
       -->
-    <DatePicker @change="onChange" format="YYYY/MM/DD"></DatePicker>
-    <div>total: {{ total }}</div>
-    <GridTickets
-      :error="error"
-      :loading="loading"
-      :status="status"
-      :tickets="tickets"
-    />
-  </div>
+      <DatePicker @change="onChange" format="YYYY/MM/DD"></DatePicker>
+      <div>total: {{ total }}</div>
+      <GridTickets
+        :error="error"
+        :loading="loading"
+        :status="status"
+        :tickets="normalizedTickets"
+      />
+    </div>
+  </MainLayout>
 </template>
 <script lang="ts" setup>
 import { computed, onMounted, ref } from "vue";
@@ -26,6 +28,7 @@ import GridTickets from "../components/GridTickets.vue";
 import DatePicker from "../components/DatePicker.vue";
 import SearchProduct from "../components/SearchProduct.vue";
 import dayjs from "dayjs";
+import MainLayout from "@/share/layouts/MainLayout.vue";
 
 // DEFINE PROPS  ======================================================================================================
 
@@ -47,7 +50,11 @@ const nowDateRange = computed(() => {
 
 // COMPOSABLES   ======================================================================================================
 const ticketStore = useTicketStore();
-const { loading, error, status, tickets } = storeToRefs(ticketStore);
+const { loading, error: rawError, status, tickets } = storeToRefs(ticketStore);
+
+const error = computed(() => rawError.value || undefined);
+
+const normalizedTickets = computed(() => tickets.value || undefined);
 
 const total = computed(() => {
   return ticketStore.tickets
@@ -62,7 +69,7 @@ const total = computed(() => {
 const onChange = (args: any) => {
   console.log({ args });
   dateRange.value = args;
-  ticketStore.fetchTickets(dateRange.value);
+  ticketStore.fetchTickets(dateRange.value || undefined);
 };
 // METHODS ============================================================================================================
 
