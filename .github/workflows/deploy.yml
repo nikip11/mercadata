@@ -12,8 +12,8 @@ jobs:
     runs-on: self-hosted  # Usa el runner auto-hospedado
     environment: producción
     env:
-      VIRTUAL_HOST: ${{ var.VIRTUAL_HOST }}
-      VIRTUAL_PORT: ${{ var.VIRTUAL_PORT }}
+      VIRTUAL_HOST: ${{ vars.VIRTUAL_HOST }}
+      VIRTUAL_PORT: ${{ vars.VIRTUAL_PORT }}
 
     steps:
       - name: Checkout code
