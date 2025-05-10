@@ -23,8 +23,6 @@ jobs:
         # git pull origin main
       - name: Build and start containers
         run: |
-          echo "Pulling latest changes..."
-
           echo "Building and starting Docker containers..."
           docker compose down
           docker compose build --no-cache
