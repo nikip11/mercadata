@@ -34,7 +34,7 @@ build: ## Compila el proyecto
 
 .PHONY: add
 add: ## Agrega paquetes con pnpm dentro del contenedor, e.g., make add vue-router@next axios
-	@docker-compose run --rm $(SERVICE_NAME) pnpm add $(filter-out $@,$(MAKECMDGOALS))
+	@docker-compose run --rm $(SERVICE_NAME) pnpm i $(filter-out $@,$(MAKECMDGOALS))
 
 .PHONY: create
 create:

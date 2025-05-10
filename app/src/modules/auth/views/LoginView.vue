@@ -5,23 +5,43 @@
       <form @submit.prevent="handleLogin">
         <div>
           <label for="email">Email:</label>
-          <input id="email" v-model="email" type="email" required />
+          <input
+            id="email"
+            v-model="email"
+            type="email"
+            required
+            :disabled="disabledInput"
+          />
         </div>
         <div>
           <label for="password">Password:</label>
-          <input id="password" v-model="password" type="password" required />
+          <input
+            id="password"
+            v-model="password"
+            type="password"
+            required
+            :disabled="disabledInput"
+          />
         </div>
-        <button type="submit">Login</button>
+        <Button
+          type="submit"
+          width="100%"
+          :disabled="disabledButton"
+          :is-loading="authStore.isLoading"
+        >
+          Login
+        </Button>
       </form>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { URL_ROUTES } from "@/plugins/router/routerType";
 import { useAuthStore } from "@/modules/auth/store/useAuthStore";
+import Button from "@/share/components/Button.vue";
 
 const email = ref("");
 const password = ref("");
@@ -29,22 +49,26 @@ const password = ref("");
 const authStore = useAuthStore();
 const router = useRouter();
 
+const disabledInput = computed(() => {
+  return authStore.isLoading;
+});
+const disabledButton = computed(() => {
+  return authStore.isLoading || !email.value || !password.value;
+});
+
 const handleLogin = async () => {
-  console.log("Logging in with:", {
-    email: email.value,
-    password: password.value,
-  });
+  console.log("Form submitted");
 
   await authStore.login({
     email: email.value,
     password: password.value,
   });
 
-  if (authStore.isAuthenticated()) {
+  if (authStore.isAuthenticated) {
     console.log("Login successful");
     router.push({ name: URL_ROUTES.DASHBOARD });
   } else {
-    console.error("Login failed", authStore.isAuthenticated());
+    console.error("Login failed", authStore.isAuthenticated);
   }
 };
 </script>

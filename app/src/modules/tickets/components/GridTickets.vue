@@ -1,7 +1,7 @@
 <template>
-  <v-data-table
+  <!-- <v-data-table
     v-if="tickets"
-    :items="tickets"
+    :items="tickets || []"
     :headers="headers"
     item-key="invoiceId"
     :expand-on-click="true"
@@ -15,11 +15,23 @@
     <template v-slot:expanded-row="{ item }">
       <v-data-table :items="item.products"></v-data-table>
     </template>
-  </v-data-table>
+  </v-data-table> -->
+  <GridWithSpinner
+    :items="tickets || []"
+    :headers="headers"
+    item-key="invoiceId"
+    :expand-on-click="true"
+    width="100%"
+    theme="dark"
+    density="compact"
+    :loading="loading"
+  />
 </template>
 <script lang="ts" setup>
 import { computed } from "vue";
 import { Ticket } from "../types/Ticket";
+import GridWithSpinner from "@/share/components/GridWithSpinner.vue";
+// import Grid from "@/share/components/Grid.vue";
 
 // DEFINE PROPS  ======================================================================================================
 defineProps({

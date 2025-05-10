@@ -46,11 +46,11 @@ router.beforeEach((to, _from, next) => {
   const authStore = useAuthStore();
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
-  if (to.name === URL_ROUTES.LOGIN && authStore.isAuthenticated()) {
+  if (to.name === URL_ROUTES.LOGIN && authStore.isAuthenticated) {
     next({ name: URL_ROUTES.DASHBOARD });
   }
 
-  if (requiresAuth && !authStore.isAuthenticated()) {
+  if (requiresAuth && !authStore.isAuthenticated) {
     next({ name: URL_ROUTES.LOGIN });
   }
 

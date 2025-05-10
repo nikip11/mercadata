@@ -24,13 +24,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  /* place-items: center; */
-  min-width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 h1 {
@@ -62,10 +55,8 @@ button:focus-visible {
 }
 
 #app {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+  width: 100dvw;
+  height: 100dvh;
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,3 +71,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* primary color #249e6b */
+/* secondary color #fbbc18 */
