@@ -10,35 +10,35 @@ help: Makefile
 
 .PHONY: up
 up: ## Inicia los contenedores
-	docker-compose up
+	docker-compose -f docker-compose.dev.yml up
 
 .PHONY: b
 b: ## Inicia los contenedores
-	docker-compose run $(SERVICE_NAME) pnpm run build
+	docker-compose -f docker-compose.dev.yml run $(SERVICE_NAME) pnpm run build
 
 .PHONY: down
 down: ## Detiene y elimina los recursos generados por 'up'
-	docker-compose down
+	docker-compose -f docker-compose.dev.yml down
 
 .PHONY: sh
 sh: ## Accede al shell del contenedor de la aplicación
-	docker-compose run $(SERVICE_NAME) sh
+	docker-compose -f docker-compose.dev.yml run $(SERVICE_NAME) sh
 
 .PHONY: dbuild
 dbuild: ## Construye la imagen de Docker basada en el Dockerfile
-	docker-compose build $(SERVICE_NAME)
+	docker-compose -f docker-compose.dev.yml build $(SERVICE_NAME)
 
 .PHONY: build
 build: ## Compila el proyecto
-	@docker-compose run --rm $(SERVICE_NAME) pnpm run build
+	@docker-compose -f docker-compose.dev.yml run --rm $(SERVICE_NAME) pnpm run build
 
 .PHONY: add
 add: ## Agrega paquetes con pnpm dentro del contenedor, e.g., make add vue-router@next axios
-	@docker-compose run --rm $(SERVICE_NAME) pnpm i $(filter-out $@,$(MAKECMDGOALS))
+	@docker-compose -f docker-compose.dev.yml run --rm $(SERVICE_NAME) pnpm i $(filter-out $@,$(MAKECMDGOALS))
 
 .PHONY: create
 create:
-	docker-compose run --rm $(SERVICE_NAME) sh -c "\
+	docker-compose -f docker-compose.dev.yml run --rm $(SERVICE_NAME) sh -c "\
 		pnpm create vite . --template vue-ts && \
 		printf \"import { defineConfig } from 'vite';\\n\
 		import vue from '@vitejs/plugin-vue';\\n\
@@ -81,6 +81,22 @@ create:
 
 %:
 	@:
+
+.PHONY: prod-build
+prod-build: ## Construye la imagen de producción
+	docker-compose build
+
+.PHONY: prod-up
+prod-up: ## Inicia el contenedor de producción
+	docker-compose up -d
+
+.PHONY: prod-down
+prod-down: ## Detiene y elimina el contenedor de producción
+	docker-compose down
+
+.PHONY: prod-logs
+prod-logs: ## Muestra los logs del contenedor de producción
+	docker-compose logs -f
 
 .PHONY: default
 default: help

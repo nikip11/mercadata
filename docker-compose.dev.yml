@@ -1,0 +1,13 @@
+services:
+  mercadata:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    tty: true
+    container_name: app
+    volumes:
+      - ./app:/app
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
