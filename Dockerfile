@@ -11,8 +11,8 @@ WORKDIR /app
 # Copiar archivos de configuración de dependencias
 COPY app/package.json app/pnpm-lock.yaml ./
 
-# Instalar dependencias
-RUN pnpm install --frozen-lockfile
+# Instalar dependencias (sin la restricción frozen-lockfile para resolver inconsistencias)
+RUN pnpm install --no-frozen-lockfile
 
 # Copiar el código fuente
 COPY app/ ./
