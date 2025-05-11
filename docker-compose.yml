@@ -3,8 +3,6 @@ services:
     build: .
     container_name: mercadata_app
     restart: unless-stopped
-    ports:
-      - "80:80"
     environment:
       - NODE_ENV=production
       - VIRTUAL_HOST=${VIRTUAL_HOST:-localhost}
