@@ -10,7 +10,7 @@ jobs:
   deploy:
     name: Deploy App
     runs-on: self-hosted  # Usa el runner auto-hospedado
-    environment: production
+    environment: Production
     env:
       VIRTUAL_HOST: ${{ vars.VIRTUAL_HOST }}
       VIRTUAL_PORT: ${{ vars.VIRTUAL_PORT }}
