@@ -7,8 +7,6 @@ services:
       - "3000:80"
     environment:
       - NODE_ENV=production
-      - VIRTUAL_HOST=${VIRTUAL_HOST:-localhost}
-      - VIRTUAL_PORT=${VIRTUAL_PORT:-3000}
     networks:
       - proxy
     healthcheck:
