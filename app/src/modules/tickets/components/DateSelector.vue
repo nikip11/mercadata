@@ -20,7 +20,7 @@ import { computed, ref } from "vue";
 
 // DEFINE PROPS  ======================================================================================================
 const emit = defineEmits(["change"]);
-const props = defineProps({
+defineProps({
   autoSelect: {
     type: Boolean,
     default: false,
@@ -53,10 +53,18 @@ const years = computed(() => {
 // EVENTS =============================================================================================================
 const onChangeMonth = (item: { id: number; name: string }) => {
   console.log("onChangeMonth", item);
+  emit("change", {
+    month: item.id,
+    year: year.value,
+  });
 };
 
 const onChangeYear = (item: { id: number; name: string }) => {
   console.log("onChangeYear", item);
+  emit("change", {
+    month: month.value,
+    year: item.id,
+  });
 };
 // METHODS ============================================================================================================
 

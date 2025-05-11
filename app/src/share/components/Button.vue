@@ -79,7 +79,7 @@ const {
 } = toRefs(props);
 const emit = defineEmits(["click"]);
 
-const handleClick = async (event: Event) => {
+const handleClick = async (_event: Event) => {
   if (isLoading.value) return;
   if (type.value === "submit") {
     // Allow form submission

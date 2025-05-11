@@ -56,14 +56,14 @@ const nowDateRange = computed(() => {
 
 // crea una computada con un array de objetos donde una propiedad sea el id con el numero del mes y otra el nombre de meses acortados
 const monthNames = computed(() => {
-  return Array.from({ length: 12 }, (v, i) => ({
+  return Array.from({ length: 12 }, (_v, i) => ({
     id: i + 1,
     name: dayjs().month(i).format("MMM"),
   }));
 });
 
 const years = computed(() => {
-  return Array.from({ length: 2 }, (v, i) => ({
+  return Array.from({ length: 2 }, (_v, i) => ({
     id: i + 1,
     name: dayjs().subtract(i, "year").format("YYYY"),
   }));
