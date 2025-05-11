@@ -23,6 +23,7 @@
     "@types/node": "^22.13.1",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "vite-plugin-checker": "^0.9.3",
     "eslint": "^9.20.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "sass-embedded": "^1.86.3",
