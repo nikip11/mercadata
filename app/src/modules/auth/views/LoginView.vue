@@ -40,7 +40,7 @@
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { URL_ROUTES } from "@/plugins/router/routerType";
-import { useAuthStore } from "@/modules/auth/store/useAuthStore";
+import { useAuthStore } from "@/modules/auth/store/useAuthStore.ts";
 import Button from "@/share/components/Button.vue";
 
 const email = ref("");

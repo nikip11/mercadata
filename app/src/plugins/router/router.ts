@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/modules/auth/store/useAuthStore";
+import { useAuthStore } from "@/modules/auth/store/useAuthStore.ts";
 import { createWebHistory, createRouter } from "vue-router";
 import { URL_ROUTES } from "./routerType";
 
