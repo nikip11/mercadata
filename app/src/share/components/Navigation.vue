@@ -49,6 +49,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    font-weight: 700;
     &:hover {
       background-color: #f0f0f0;
       color: #000;
