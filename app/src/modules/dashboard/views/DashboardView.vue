@@ -8,7 +8,8 @@
       </Container>
 
       <Container class="right-area">
-        <Title class="title">+ comprados</Title>
+        <Title class="title">Los más comprados</Title>
+        <TopProducts />
       </Container>
 
       <Container class="top-area">
@@ -22,6 +23,7 @@ import MainLayout from "@/share/layouts/MainLayout.vue";
 import Graphics from "../components/Graphics.vue";
 import Container from "@/share/components/Container.vue";
 import Title from "@/share/components/Title.vue";
+import TopProducts from "../components/TopProducts.vue";
 </script>
 <style lang="scss" scoped>
 h2 {
@@ -34,7 +36,7 @@ h2 {
   gap: 30px 30px;
   grid-auto-flow: row;
   grid-template-areas:
-    "top-area top-area top-area"
+    "top-area top-area right-area"
     "center-area center-area right-area"
     "center-area center-area right-area"
     "center-area center-area right-area";
@@ -50,6 +52,5 @@ h2 {
 
 .right-area {
   grid-area: right-area;
-  min-height: 600px;
 }
 </style>

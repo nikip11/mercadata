@@ -18,7 +18,7 @@ const props = defineProps({
   h2 {
     margin: 0;
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #333;
     line-height: normal;
   }

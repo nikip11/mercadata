@@ -1,6 +1,6 @@
 <template>
   <div :class="props.class">
-    <div class="wrapper">
+    <div class="container">
       <slot></slot>
     </div>
   </div>
@@ -16,13 +16,13 @@ const props = defineProps({
 });
 </script>
 <style lang="scss" scoped>
-.wrapper {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 30px;
   // height: 100%;
 }
 </style>
