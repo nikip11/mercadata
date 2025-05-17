@@ -35,6 +35,7 @@ RUN chown -R nginx:nginx /usr/share/nginx/html && \
     touch /var/run/nginx.pid && \
     chown -R nginx:nginx /var/run/nginx.pid
 
+
 # Exponer el puerto 80
 EXPOSE 80
 
