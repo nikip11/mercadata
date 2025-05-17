@@ -4,9 +4,8 @@ import useLocalStorage from "@/share/composables/useLocalStorage";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
-const AUTH_URL = AUTHIFY_URL + "/mercadata/login";
+const AUTH_URL = AUTHIFY_URL + "/auth/mercadata/login";
 
-// TODO: Cambiar a un archivo de configuración
 // TODO: hacer un check del token al servicio de authenticacion para verificar si el token no ha expirado
 // TODO: Implementar refresh token
 
