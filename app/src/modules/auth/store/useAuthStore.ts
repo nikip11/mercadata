@@ -1,11 +1,10 @@
+import { AUTHIFY_URL } from "@/config";
 import { http } from "@/plugins/http";
 import useLocalStorage from "@/share/composables/useLocalStorage";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
-const AUTHFY_URL = "http://localhost:8000/auth/mercadata/login";
-// const AUTHFY_URL =
-//   "https://authify-production.up.railway.app/auth/mercadata/login";
+const AUTH_URL = AUTHIFY_URL + "/mercadata/login";
 
 // TODO: Cambiar a un archivo de configuración
 // TODO: hacer un check del token al servicio de authenticacion para verificar si el token no ha expirado
@@ -35,7 +34,7 @@ export const useAuthStore = defineStore("auth", () => {
     error.value = "";
 
     try {
-      const response = await http.post(AUTHFY_URL, credentials);
+      const response = await http.post(AUTH_URL, credentials);
       console.log("response", response);
       auth.value = {
         accessToken: response.data.access_token as string,
