@@ -23,6 +23,10 @@ RUN pnpm build
 # Etapa de producción con Nginx
 FROM nginx:stable-alpine
 
+# Copiar la configuración personalizada de Nginx
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/
+
 # Copiar los archivos de compilación desde la etapa anterior
 COPY --from=build /app/dist /usr/share/nginx/html
 
@@ -34,7 +38,6 @@ RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chown -R nginx:nginx /etc/nginx/conf.d && \
     touch /var/run/nginx.pid && \
     chown -R nginx:nginx /var/run/nginx.pid
-
 
 # Exponer el puerto 80
 EXPOSE 80
