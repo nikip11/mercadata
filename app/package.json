@@ -1,8 +1,9 @@
 {
-  "name": "app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "mercadata",
+  "version": "0.1.2",
   "type": "module",
+  "description": "Mercadata is a web application that provides data visualization and analysis tools.",
+  "author": "NikiP11",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
