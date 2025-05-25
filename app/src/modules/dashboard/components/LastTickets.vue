@@ -11,6 +11,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { onMounted } from "vue";
 import useLastTicketsStore from "../stores/useLastTicketsStore";
 
 // DEFINE PROPS  ======================================================================================================
@@ -28,6 +29,8 @@ const lastTicketStore = useLastTicketsStore();
 // METHODS ============================================================================================================
 
 // HOOKS =============================================================================================================
-
+onMounted(() => {
+  lastTicketStore.fetchLastTickets();
+});
 console.log("LastTickets", { props });
 </script>

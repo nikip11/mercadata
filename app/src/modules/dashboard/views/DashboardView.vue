@@ -25,6 +25,7 @@ import Graphics from "../components/Graphics.vue";
 import Container from "@/shared/components/Container.vue";
 import Title from "@/shared/components/Title.vue";
 import TopProducts from "../components/TopProducts.vue";
+import LastTickets from "../components/LastTickets.vue";
 </script>
 <style lang="scss" scoped>
 h2 {

@@ -1,10 +1,10 @@
-enum TotalStatus {
+export enum TotalStatus {
   Pending = "pending",
   Success = "success",
   Error = "error",
 }
 
-enum httpStatus {
+export enum httpStatus {
   PENDING = "pending",
   SUCCESS = "success",
   ERROR = "error",

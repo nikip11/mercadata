@@ -16,7 +16,8 @@ const useLastTicketsStore = defineStore("lastTickets", () => {
     status.value = httpStatus.PENDING;
     console.log("Fetching last tickets...");
     try {
-      lastTickets.value = await http.get("/tickets/last");
+      const { data } = await http.get("/tickets/latest");
+      lastTickets.value = data.data;
       status.value = httpStatus.SUCCESS;
     } catch (error) {
       errorData.value = "Error fetching last tickets";
