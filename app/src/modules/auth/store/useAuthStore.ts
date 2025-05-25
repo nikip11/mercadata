@@ -1,6 +1,6 @@
 import { AUTHIFY_URL } from "@/config";
 import { http } from "@/plugins/http";
-import useLocalStorage from "@/share/composables/useLocalStorage";
+import useLocalStorage from "@/shared/composables/useLocalStorage";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 

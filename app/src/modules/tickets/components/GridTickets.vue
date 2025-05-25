@@ -30,7 +30,7 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { Ticket } from "../types/Ticket";
-import GridWithSpinner from "@/share/components/GridWithSpinner.vue";
+import GridWithSpinner from "@/shared/components/GridWithSpinner.vue";
 // import Grid from "@/share/components/Grid.vue";
 
 // DEFINE PROPS  ======================================================================================================

@@ -1,12 +1,7 @@
 import { http } from "@/plugins/http";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
-
-enum TotalStatus {
-  Pending = "pending",
-  Success = "success",
-  Error = "error",
-}
+import { TotalStatus } from "@/shared/enums";
 
 export const useTotalStore = defineStore("total", () => {
   const totalData = ref([]);

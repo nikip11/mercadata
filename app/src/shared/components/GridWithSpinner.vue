@@ -1,12 +1,10 @@
 <template>
-  <Spinner v-if="loading" />
-  <Grid v-else v-bind="gridProps" />
+  <Grid v-bind="gridProps" />
 </template>
 
 <script lang="ts" setup>
 import { computed, PropType } from "vue";
 import Grid from "./Grid.vue";
-import Spinner from "./Spinner.vue";
 
 // DEFINE PROPS ===============================================================================================
 const props = defineProps({

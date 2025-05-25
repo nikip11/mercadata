@@ -7,5 +7,5 @@
   </MiniLayout>
 </template>
 <script lang="ts" setup>
-import MiniLayout from "@/share/layouts/MiniLayout.vue";
+import MiniLayout from "@/shared/layouts/MiniLayout.vue";
 </script>

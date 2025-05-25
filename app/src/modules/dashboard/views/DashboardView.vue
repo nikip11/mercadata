@@ -14,15 +14,16 @@
 
       <Container class="top-area">
         <Title class="title">Últimas compras</Title>
+        <LastTickets />
       </Container>
     </div>
   </MainLayout>
 </template>
 <script lang="ts" setup>
-import MainLayout from "@/share/layouts/MainLayout.vue";
+import MainLayout from "@/shared/layouts/MainLayout.vue";
 import Graphics from "../components/Graphics.vue";
-import Container from "@/share/components/Container.vue";
-import Title from "@/share/components/Title.vue";
+import Container from "@/shared/components/Container.vue";
+import Title from "@/shared/components/Title.vue";
 import TopProducts from "../components/TopProducts.vue";
 </script>
 <style lang="scss" scoped>
