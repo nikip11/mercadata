@@ -5,8 +5,8 @@
   </aside>
 </template>
 <script lang="ts" setup>
-import Navigation from "@/share/components/Navigation.vue";
-import Logo from "@/share/components/Logo.vue";
+import Navigation from "@/shared/components/Navigation.vue";
+import Logo from "@/shared/components/Logo.vue";
 </script>
 <style lang="scss" scoped>
 aside {

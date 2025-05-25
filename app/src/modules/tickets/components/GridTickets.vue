@@ -31,7 +31,7 @@
 import { computed } from "vue";
 import { Ticket } from "../types/Ticket";
 import GridWithSpinner from "@/shared/components/GridWithSpinner.vue";
-// import Grid from "@/share/components/Grid.vue";
+// import Grid from "@/shared/components/Grid.vue";
 
 // DEFINE PROPS  ======================================================================================================
 defineProps({

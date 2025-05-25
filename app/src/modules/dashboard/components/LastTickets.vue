@@ -1,16 +1,22 @@
 <template>
   <div>
-    <div class="ticket" v-for="ticket in 5" :key="ticket">
-      <p>Fecha: {{ new Date().toLocaleDateString() }}</p>
-      <p>Total: ${{ (Math.random() * 1000).toFixed(2) }}</p>
+    <div
+      class="ticket"
+      v-for="ticket in lastTicketStore.lastTickets"
+      :key="ticket._id"
+    >
+      <p>Fecha: {{ ticket.ticket_date }}</p>
+      <p>Total: ${{ ticket.totalCalc.toFixed(2) }}</p>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+import useLastTicketsStore from "../stores/useLastTicketsStore";
+
 // DEFINE PROPS  ======================================================================================================
 const props = defineProps({});
 // COMPOSABLES   ======================================================================================================
-
+const lastTicketStore = useLastTicketsStore();
 // STORE ACTIONS ======================================================================================================
 
 // STORE GETTERS ======================================================================================================

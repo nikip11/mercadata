@@ -1,25 +1,26 @@
 import { http } from "@/plugins/http";
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { TotalStatus } from "@/shared/enums";
+import { httpStatus } from "@/shared/enum/http";
+import type { Ticket } from "@/modules/tickets/types/Ticket";
 
 const useLastTicketsStore = defineStore("lastTickets", () => {
-  const lastTickets = ref([]);
+  const lastTickets = ref<Ticket[]>([]);
   const errorData = ref<string | null>(null);
   const loading = ref(false);
-  const status = ref<TotalStatus>(TotalStatus.Pending);
+  const status = ref<httpStatus>(httpStatus.PENDING);
 
   async function fetchLastTickets() {
     loading.value = true;
     errorData.value = null;
-    status.value = TotalStatus.Pending;
+    status.value = httpStatus.PENDING;
     console.log("Fetching last tickets...");
     try {
       lastTickets.value = await http.get("/tickets/last");
-      status.value = TotalStatus.Success;
+      status.value = httpStatus.SUCCESS;
     } catch (error) {
       errorData.value = "Error fetching last tickets";
-      status.value = TotalStatus.Error;
+      status.value = httpStatus.ERROR;
     } finally {
       loading.value = false;
     }
